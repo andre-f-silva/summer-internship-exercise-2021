@@ -39,8 +39,3 @@ O código deve ser implementado na classe MatrixMotionBlur e os testes em Matrix
 
 * Instalar o mvn [https://maven.apache.org/install.html]
 * Correr `mvn test`
-
-## Dúvidas
-
-Quaisquer dúvidas que tenhas, cria uma issue aqui no github :)
-
