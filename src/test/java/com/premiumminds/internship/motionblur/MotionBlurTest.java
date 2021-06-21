@@ -4,13 +4,10 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.Arrays;
-import java.util.Random;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-
-import javax.management.MXBean;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +15,7 @@ import org.junit.runners.JUnit4;
 
 /**
  * Created by aamado on 05-05-2021.
+ * Completed by andre-f-silva
  */
 @RunWith(JUnit4.class)
 public class MotionBlurTest {
@@ -67,7 +65,7 @@ public class MotionBlurTest {
 	};
 
 	@Test
-	public void MotionBlurSingleThreadM1()
+	public void MotionBlurSingleThreadM1Test()
 			throws InterruptedException, ExecutionException, TimeoutException {
 
 		Future<int[][]> step1 = new MotionBlurSingleThread().run(MatrixData.M1, 1);
@@ -76,7 +74,7 @@ public class MotionBlurTest {
 	}
 
 	@Test
-	public void MotionBlurSingleThreadM2()
+	public void MotionBlurSingleThreadM2Test()
 			throws InterruptedException, ExecutionException, TimeoutException {
 
 		Future<int[][]> step1 = new MotionBlurSingleThread().run(MatrixData.M2, 1);
@@ -85,7 +83,7 @@ public class MotionBlurTest {
 	}
 
 	@Test
-	public void MotionBlurSingleThreadM3()
+	public void MotionBlurSingleThreadM3Test()
 			throws InterruptedException, ExecutionException, TimeoutException {
 
 		Future<int[][]> step1 = new MotionBlurSingleThread().run(MatrixData.M3, 1);
@@ -94,7 +92,7 @@ public class MotionBlurTest {
 	}
 
 	@Test
-	public void MotionBlurSingleThreadM4()
+	public void MotionBlurSingleThreadM4Test()
 			throws InterruptedException, ExecutionException, TimeoutException {
 
 		Future<int[][]> step1 = new MotionBlurSingleThread().run(MatrixData.M4, 1);
@@ -149,7 +147,7 @@ public class MotionBlurTest {
 	}
 
 	@Test
-	public void MotionBlurMultiThreadM1WithTooMuchWorkersTest()
+	public void MotionBlurMultiThreadM1WithMoreWorkersThanPixelsTest()
 			throws InterruptedException, ExecutionException, TimeoutException {
 
 		//more threads then pixels
@@ -175,8 +173,7 @@ public class MotionBlurTest {
 	}
 
 	@Test(expected=IllegalArgumentException.class)
-	public void MotionBlurInvalidArgumentsTest()
-			throws InterruptedException, ExecutionException, TimeoutException {
+	public void MotionBlurInvalidArgumentsTest() {
 
 		//expecting IllegalArgumentException
 		//or assertNull if the code changes
@@ -191,7 +188,7 @@ public class MotionBlurTest {
 
 		fail("IllegalArgumentException not thrown");
 	}
-	
+
 	private void printHelper(int[][] matrix) {
 		for (int l = 0; l < matrix.length; l++) {
 			for (int c = 0; c < matrix[0].length; c++) {

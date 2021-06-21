@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 
 /**
  * Created by aamado on 05-05-2021.
- * Implemented by asilva
+ * Implemented by andre-f-silva
  */
 class MotionBlurSingleThread implements MotionBlurFactory {
 

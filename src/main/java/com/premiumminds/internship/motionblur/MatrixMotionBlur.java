@@ -1,11 +1,15 @@
 package com.premiumminds.internship.motionblur;
 
 /**
- * Created by asilva
- * 
  * Class that provides matrix motion blur calculation
+ * 
+ * @author andre-f-silva
  */
 public class MatrixMotionBlur {
+
+	private MatrixMotionBlur() {
+		//hide public constructor
+	}
 
 	/**
 	 * Applies motion blur calculation of the pixel in the given position
@@ -15,14 +19,14 @@ public class MatrixMotionBlur {
 	 * @param data	matrix of integers
 	 * @param x		x coordinate of the pixel
 	 * @param y		y coordinate of the pixel
-	 * @return 		motion blur value
+	 * @return motion blur value
 	 * @throws ArrayIndexOutOfBoundsException when coordinates are wrong given data
 	 */
 	protected static int calculateMotionBlur(int[][] data, int x, int y) {
 
 		//center
 		int pixelsInvolved = 1;
-		float result = data[y][x];
+		int result = data[y][x];
 
 		//top pixel
 		if(y != 0) {
@@ -45,7 +49,7 @@ public class MatrixMotionBlur {
 		//for tests
 		//return the thread Id to visualize which thread calculated this
 		//return (int) Thread.currentThread().getId();
-		
-		return Math.round(result/pixelsInvolved);
+
+		return Math.round((float) result/pixelsInvolved);
 	}
 }
