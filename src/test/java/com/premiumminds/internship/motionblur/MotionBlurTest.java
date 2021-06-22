@@ -167,8 +167,8 @@ public class MotionBlurTest {
 		int[][] result = step1.get(10, TimeUnit.SECONDS);
 		assertTrue(Arrays.deepEquals(result, expected));
 
-		Future<int[][]> step2 = new MotionBlurMultiThread().run(empty, 5);
-		int[][] result2 = step2.get(10, TimeUnit.SECONDS);
+		Future<int[][]> multiStep1 = new MotionBlurMultiThread().run(empty, 5);
+		int[][] result2 = multiStep1.get(10, TimeUnit.SECONDS);
 		assertTrue(Arrays.deepEquals(result2, expected));
 	}
 
@@ -178,13 +178,13 @@ public class MotionBlurTest {
 		//expecting IllegalArgumentException
 		//or assertNull if the code changes
 
-		Future<int[][]> step1 = new MotionBlurSingleThread().run(null, 1);
+		Future<int[][]> nullMatrixSingle = new MotionBlurSingleThread().run(null, 1);
 
-		Future<int[][]> step2 = new MotionBlurSingleThread().run(MatrixData.M1, -1);
+		Future<int[][]> negativeWorkersSingle = new MotionBlurSingleThread().run(MatrixData.M1, -1);
 
-		Future<int[][]> step3 = new MotionBlurMultiThread().run(null, 5);
+		Future<int[][]> nullMatrixMulti = new MotionBlurMultiThread().run(null, 5);
 
-		Future<int[][]> step4 = new MotionBlurMultiThread().run(MatrixData.M1, -1);
+		Future<int[][]> negativeWorkersMulti = new MotionBlurMultiThread().run(MatrixData.M1, -1);
 
 		fail("IllegalArgumentException not thrown");
 	}

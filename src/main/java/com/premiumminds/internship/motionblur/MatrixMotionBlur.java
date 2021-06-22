@@ -13,7 +13,7 @@ public class MatrixMotionBlur {
 
 	/**
 	 * Applies motion blur calculation of the pixel in the given position
-	 * (M(x, y)+M(x-1, y)+M(x, y-1)+M(x, y+1)) / pixelsInvolved
+	 * (M(x, y)+M(x-1, y)+M(x, y-1)+M(x, y+1)) / pixelsInvolved.
 	 * Assumes natural order of 2d array, (0,0) is top left
 	 * 
 	 * @param data	matrix of integers
